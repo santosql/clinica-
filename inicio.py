@@ -44,3 +44,16 @@ def _input_int(rotulo:str,minimo:int=None,maximo:int=None) -> int:
             return valor
         except ValueError:
             print("informe um número inteiro válido.")
+
+def cadastrar_paciente(pacientes: List[paciente]) -> None:
+    """
+    Cadastra um novo paciente na lista de pacientes.
+    Solicita ao usuário o nome, telefone e idade do paciente.
+    Adiciona o paciente à lista de pacientes.
+    """
+    print("\n=== Cadastro de Paciente ===")
+    nome=_input_nao_vazio("nome completo: ")
+    idade=_input_int("idade(em anos): ",minimo=0,maximo=100)
+    telefone=_input_nao_vazio("telefone(ex: 2198765-4321): ")
+    pacientes.append({"nome":nome,"idade":str(idade),"telefone":telefone})
+    print(f"paciente{nome}cadastrado com sucesso!\n")
